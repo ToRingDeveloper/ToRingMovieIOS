@@ -18,6 +18,7 @@
 		3133B87A210CC96200D096A0 /* UICustomLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3133B879210CC96200D096A0 /* UICustomLoadingView.swift */; };
 		3133B9D9210CCA1700D096A0 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3133B9D7210CCA1700D096A0 /* Movie.swift */; };
 		3133B9DA210CCA1700D096A0 /* MovieRSP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3133B9D8210CCA1700D096A0 /* MovieRSP.swift */; };
+		3133B9DD210CCA5200D096A0 /* GetImageURLUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3133B9DC210CCA5200D096A0 /* GetImageURLUtil.swift */; };
 		5D115B0F55FE55324254FF04 /* Pods_ToRingMovie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96B2B07A75E861BD7F8E54A0 /* Pods_ToRingMovie.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		3133B879210CC96200D096A0 /* UICustomLoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICustomLoadingView.swift; sourceTree = "<group>"; };
 		3133B9D7210CCA1700D096A0 /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		3133B9D8210CCA1700D096A0 /* MovieRSP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieRSP.swift; sourceTree = "<group>"; };
+		3133B9DC210CCA5200D096A0 /* GetImageURLUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetImageURLUtil.swift; sourceTree = "<group>"; };
 		356AB1BAE1ED690FBE46F920 /* Pods-ToRingMovie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToRingMovie.release.xcconfig"; path = "Pods/Target Support Files/Pods-ToRingMovie/Pods-ToRingMovie.release.xcconfig"; sourceTree = "<group>"; };
 		42F726DDF834809F6CFD3E81 /* Pods-ToRingMovie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToRingMovie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ToRingMovie/Pods-ToRingMovie.debug.xcconfig"; sourceTree = "<group>"; };
 		96B2B07A75E861BD7F8E54A0 /* Pods_ToRingMovie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToRingMovie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,6 +92,7 @@
 		3133B859210CC5C300D096A0 /* ToRingMovie */ = {
 			isa = PBXGroup;
 			children = (
+				3133B9DB210CCA5200D096A0 /* Util */,
 				3133B9D6210CCA1700D096A0 /* Model */,
 				3133B878210CC96200D096A0 /* CustomView */,
 				3133B86C210CC86600D096A0 /* Base */,
@@ -144,6 +147,14 @@
 				3133B9D8210CCA1700D096A0 /* MovieRSP.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		3133B9DB210CCA5200D096A0 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				3133B9DC210CCA5200D096A0 /* GetImageURLUtil.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3133B9D9210CCA1700D096A0 /* Movie.swift in Sources */,
+				3133B9DD210CCA5200D096A0 /* GetImageURLUtil.swift in Sources */,
 				3133B87A210CC96200D096A0 /* UICustomLoadingView.swift in Sources */,
 				3133B85D210CC5C300D096A0 /* ViewController.swift in Sources */,
 				3133B85B210CC5C300D096A0 /* AppDelegate.swift in Sources */,
