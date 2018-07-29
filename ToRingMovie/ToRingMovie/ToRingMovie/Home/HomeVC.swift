@@ -18,17 +18,17 @@ class HomeVC: UITabBarController {
     }
     
     func addComponent() {
-//        let attributesSelected = [
-//            NSAttributedStringKey.foregroundColor : UIColor(named: "AppColor")
-//        ]
-//        let attributesNormal = [
-//            NSAttributedStringKey.foregroundColor : UIColor(named: "SecondaryTextColor")
-//        ]
-//        UITabBarItem.appearance().setTitleTextAttributes(attributesNormal , for: UIControlState.normal)
-//        UITabBarItem.appearance().setTitleTextAttributes(attributesSelected, for: UIControlState.selected)
-//        self.tabBar.barTintColor = UIColor(named: "Background")
-//        self.tabBar.tintColor = UIColor(named: "AppColor")
-//        self.tabBar.unselectedItemTintColor = UIColor(named: "Background")
+        let attributesSelected = [
+            NSAttributedStringKey.foregroundColor : UIColor.init(rgb: ColorCons.TEXT_PRIMARY)
+        ]
+        let attributesNormal = [
+            NSAttributedStringKey.foregroundColor : UIColor.init(rgb: ColorCons.TEXT_SECONDARY)
+        ]
+        UITabBarItem.appearance().setTitleTextAttributes(attributesNormal , for: UIControlState.normal)
+        UITabBarItem.appearance().setTitleTextAttributes(attributesSelected, for: UIControlState.selected)
+        self.tabBar.barTintColor = UIColor.init(rgb: ColorCons.BACKGROUND)
+        self.tabBar.tintColor = UIColor.init(rgb: ColorCons.APP_COLOR)
+        self.tabBar.unselectedItemTintColor = UIColor.init(rgb: ColorCons.BACKGROUND)
         self.tabBar.isTranslucent = false
         
         let homeMovieVC = HomeMovieVC()

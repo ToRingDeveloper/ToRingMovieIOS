@@ -24,6 +24,7 @@
 		3133B9ED210CCA8300D096A0 /* PopularMovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3133B9E5210CCA8300D096A0 /* PopularMovieCell.swift */; };
 		3133B9EE210CCA8300D096A0 /* HomeMovieVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3133B9E7210CCA8300D096A0 /* HomeMovieVC.swift */; };
 		3133B9EF210CCA8300D096A0 /* HomeTVVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3133B9EA210CCA8300D096A0 /* HomeTVVC.swift */; };
+		31B200F1210E0B64008BED25 /* ColorCons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B200F0210E0B64008BED25 /* ColorCons.swift */; };
 		5D115B0F55FE55324254FF04 /* Pods_ToRingMovie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96B2B07A75E861BD7F8E54A0 /* Pods_ToRingMovie.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		3133B9E5210CCA8300D096A0 /* PopularMovieCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularMovieCell.swift; sourceTree = "<group>"; };
 		3133B9E7210CCA8300D096A0 /* HomeMovieVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeMovieVC.swift; sourceTree = "<group>"; };
 		3133B9EA210CCA8300D096A0 /* HomeTVVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTVVC.swift; sourceTree = "<group>"; };
+		31B200F0210E0B64008BED25 /* ColorCons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCons.swift; sourceTree = "<group>"; };
 		356AB1BAE1ED690FBE46F920 /* Pods-ToRingMovie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToRingMovie.release.xcconfig"; path = "Pods/Target Support Files/Pods-ToRingMovie/Pods-ToRingMovie.release.xcconfig"; sourceTree = "<group>"; };
 		42F726DDF834809F6CFD3E81 /* Pods-ToRingMovie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToRingMovie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ToRingMovie/Pods-ToRingMovie.debug.xcconfig"; sourceTree = "<group>"; };
 		96B2B07A75E861BD7F8E54A0 /* Pods_ToRingMovie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToRingMovie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,6 +104,7 @@
 		3133B859210CC5C300D096A0 /* ToRingMovie */ = {
 			isa = PBXGroup;
 			children = (
+				31B200EF210E0B38008BED25 /* AppCons */,
 				3133B9DE210CCA8300D096A0 /* Home */,
 				3133B9DB210CCA5200D096A0 /* Util */,
 				3133B9D6210CCA1700D096A0 /* Model */,
@@ -234,6 +237,14 @@
 				3133B9EA210CCA8300D096A0 /* HomeTVVC.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		31B200EF210E0B38008BED25 /* AppCons */ = {
+			isa = PBXGroup;
+			children = (
+				31B200F0210E0B64008BED25 /* ColorCons.swift */,
+			);
+			path = AppCons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -372,6 +383,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3133B9ED210CCA8300D096A0 /* PopularMovieCell.swift in Sources */,
+				31B200F1210E0B64008BED25 /* ColorCons.swift in Sources */,
 				3133B9EF210CCA8300D096A0 /* HomeTVVC.swift in Sources */,
 				3133B9D9210CCA1700D096A0 /* Movie.swift in Sources */,
 				3133B9EB210CCA8300D096A0 /* HomeVC.swift in Sources */,
