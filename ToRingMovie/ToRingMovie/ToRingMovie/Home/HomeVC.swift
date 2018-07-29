@@ -18,17 +18,17 @@ class HomeVC: UITabBarController {
     }
     
     func addComponent() {
-        let attributesSelected = [
-            NSAttributedStringKey.foregroundColor : UIColor(named: "AppColor")
-        ]
-        let attributesNormal = [
-            NSAttributedStringKey.foregroundColor : UIColor(named: "SecondaryTextColor")
-        ]
-        UITabBarItem.appearance().setTitleTextAttributes(attributesNormal , for: UIControlState.normal)
-        UITabBarItem.appearance().setTitleTextAttributes(attributesSelected, for: UIControlState.selected)
-        self.tabBar.barTintColor = UIColor(named: "Background")
-        self.tabBar.tintColor = UIColor(named: "AppColor")
-        self.tabBar.unselectedItemTintColor = UIColor(named: "Background")
+//        let attributesSelected = [
+//            NSAttributedStringKey.foregroundColor : UIColor(named: "AppColor")
+//        ]
+//        let attributesNormal = [
+//            NSAttributedStringKey.foregroundColor : UIColor(named: "SecondaryTextColor")
+//        ]
+//        UITabBarItem.appearance().setTitleTextAttributes(attributesNormal , for: UIControlState.normal)
+//        UITabBarItem.appearance().setTitleTextAttributes(attributesSelected, for: UIControlState.selected)
+//        self.tabBar.barTintColor = UIColor(named: "Background")
+//        self.tabBar.tintColor = UIColor(named: "AppColor")
+//        self.tabBar.unselectedItemTintColor = UIColor(named: "Background")
         self.tabBar.isTranslucent = false
         
         let homeMovieVC = HomeMovieVC()
@@ -43,7 +43,7 @@ class HomeVC: UITabBarController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
 
     /*
     // MARK: - Navigation
