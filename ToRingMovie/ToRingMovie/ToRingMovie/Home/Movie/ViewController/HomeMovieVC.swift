@@ -22,6 +22,13 @@ class HomeMovieVC: UIViewController {
         movieTV.allowsSelection = false
         return movieTV
     }()
+    
+    lazy var layoutLoading: UICustomLoadingView = {
+        let layoutLoading = UICustomLoadingView()
+        layoutLoading.startAnimating()
+        layoutLoading.hidesWhenStopped = true
+        return layoutLoading
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,19 +42,27 @@ class HomeMovieVC: UIViewController {
     func addComponent() {
         self.view.addSubview(safeView)
         self.safeView.addSubview(movieTV)
+        self.safeView.addSubview(layoutLoading)
         
         // add constrain
         self.safeView.snp.makeConstraints { (make) in
-            make.left.equalToSuperview()
+            make.leading.equalToSuperview()
             make.top.equalToSuperview().offset(20)
-            make.right.equalToSuperview()
+            make.trailing.equalToSuperview()
             make.bottom.equalToSuperview()
         }
         
         self.movieTV.snp.makeConstraints { (make) in
-            make.left.equalToSuperview()
+            make.leading.equalToSuperview()
             make.top.equalToSuperview()
-            make.right.equalToSuperview()
+            make.trailing.equalToSuperview()
+            make.bottom.equalToSuperview()
+        }
+        
+        self.layoutLoading.snp.makeConstraints { (make) in
+            make.leading.equalToSuperview()
+            make.top.equalToSuperview()
+            make.trailing.equalToSuperview()
             make.bottom.equalToSuperview()
         }
     }
