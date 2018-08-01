@@ -24,6 +24,7 @@
 		3133B9ED210CCA8300D096A0 /* PopularMovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3133B9E5210CCA8300D096A0 /* PopularMovieCell.swift */; };
 		3133B9EE210CCA8300D096A0 /* HomeMovieVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3133B9E7210CCA8300D096A0 /* HomeMovieVC.swift */; };
 		3133B9EF210CCA8300D096A0 /* HomeTVVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3133B9EA210CCA8300D096A0 /* HomeTVVC.swift */; };
+		3153110721120E8D00440F3A /* PopularMovieItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3153110621120E8D00440F3A /* PopularMovieItemCell.swift */; };
 		31B200F1210E0B64008BED25 /* ColorCons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B200F0210E0B64008BED25 /* ColorCons.swift */; };
 		31B200F3210E11CB008BED25 /* ApiCons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B200F2210E11CB008BED25 /* ApiCons.swift */; };
 		5D115B0F55FE55324254FF04 /* Pods_ToRingMovie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96B2B07A75E861BD7F8E54A0 /* Pods_ToRingMovie.framework */; };
@@ -49,6 +50,7 @@
 		3133B9E5210CCA8300D096A0 /* PopularMovieCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularMovieCell.swift; sourceTree = "<group>"; };
 		3133B9E7210CCA8300D096A0 /* HomeMovieVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeMovieVC.swift; sourceTree = "<group>"; };
 		3133B9EA210CCA8300D096A0 /* HomeTVVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTVVC.swift; sourceTree = "<group>"; };
+		3153110621120E8D00440F3A /* PopularMovieItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMovieItemCell.swift; sourceTree = "<group>"; };
 		31B200F0210E0B64008BED25 /* ColorCons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCons.swift; sourceTree = "<group>"; };
 		31B200F2210E11CB008BED25 /* ApiCons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCons.swift; sourceTree = "<group>"; };
 		356AB1BAE1ED690FBE46F920 /* Pods-ToRingMovie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToRingMovie.release.xcconfig"; path = "Pods/Target Support Files/Pods-ToRingMovie/Pods-ToRingMovie.release.xcconfig"; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				3133B9E5210CCA8300D096A0 /* PopularMovieCell.swift */,
+				3153110621120E8D00440F3A /* PopularMovieItemCell.swift */,
 			);
 			path = Popular;
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 				3133B9EB210CCA8300D096A0 /* HomeVC.swift in Sources */,
 				31B200F3210E11CB008BED25 /* ApiCons.swift in Sources */,
 				3133B9EE210CCA8300D096A0 /* HomeMovieVC.swift in Sources */,
+				3153110721120E8D00440F3A /* PopularMovieItemCell.swift in Sources */,
 				3133B9DD210CCA5200D096A0 /* GetImageURLUtil.swift in Sources */,
 				3133B87A210CC96200D096A0 /* UICustomLoadingView.swift in Sources */,
 				3133B85D210CC5C300D096A0 /* ViewController.swift in Sources */,

@@ -15,7 +15,7 @@ class HomeMovieVC: UIViewController {
     let MAX_RESPONSE  = 4
     var countResponse = 0
     var titles = ["Popular", "Upcoming", "Now playing", "Top rate"]
-    var movieRSPs = [MovieRSP?](repeating: nil, count: MAX_RESPONSE)
+    var movieRSPs = [MovieRSP?](repeating: nil, count: 4)
     
     lazy var safeView: UIView = {
         let safeView = UIView()
@@ -94,13 +94,13 @@ class HomeMovieVC: UIViewController {
             self.handleResponse(index: 0, response: response)
         }
         Alamofire.request(ApiCons.BASE_URL + "movie/upcoming", method: HTTPMethod.get, parameters: parameters).responseJSON { (response) in
-            self.handleResponse(index: 0, response: response)
+            self.handleResponse(index: 1, response: response)
         }
         Alamofire.request(ApiCons.BASE_URL + "movie/now_playing", method: HTTPMethod.get, parameters: parameters).responseJSON { (response) in
-            self.handleResponse(index: 0, response: response)
+            self.handleResponse(index: 2, response: response)
         }
         Alamofire.request(ApiCons.BASE_URL + "movie/top_rated", method: HTTPMethod.get, parameters: parameters).responseJSON { (response) in
-            self.handleResponse(index: 0, response: response)
+            self.handleResponse(index: 3, response: response)
         }
     }
     
@@ -137,7 +137,7 @@ class HomeMovieVC: UIViewController {
     func parseData(index : Int, value : Any){
         let jsonString = JSON(value)
         let movieRSP = MovieRSP(json: jsonString)
-        self.movieRSPs[0] = movieRSP
+        self.movieRSPs[index] = movieRSP
         
         countResponse += 1
         if (countResponse == MAX_RESPONSE){
@@ -168,7 +168,7 @@ extension HomeMovieVC: UITableViewDataSource, UITableViewDelegate{
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "popular_cell") as! PopularMovieCell
-            cell.backgroundColor = .red
+            cell.setData(movieRSP: movieRSPs[indexPath.row])
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "anther_cell") as! AnotherMovieCell

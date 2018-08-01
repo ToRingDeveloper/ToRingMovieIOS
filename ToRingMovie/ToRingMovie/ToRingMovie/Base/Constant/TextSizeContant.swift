@@ -8,10 +8,10 @@
 
 import UIKit
 
-class TextSizeContant: NSObject {
-    let MINI = 10
-    let SMALL = 12
-    let NORMAL = 14
-    let LARGE = 16
-    let BIG = 18
+class TextSizeContant {
+    static let MINI : CGFloat = 10
+    static let SMALL : CGFloat = 12
+    static let NORMAL : CGFloat = 14
+    static let LARGE : CGFloat = 16
+    static let BIG : CGFloat = 18
 }

@@ -16,8 +16,55 @@ class PopularMovieCell: UITableViewCell {
         return safeView
     }()
     
+    lazy var movieCV : UICollectionView = {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = UICollectionViewScrollDirection.horizontal
+        flowLayout.minimumLineSpacing = 0
+        let movieCV = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        movieCV.isPagingEnabled = true
+        movieCV.showsHorizontalScrollIndicator = false
+        return movieCV
+    }()
+    
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        addComponent()
+        registerCell()
+    }
+    
+    func registerCell() {
+        movieCV.dataSource = self
+        movieCV.delegate = self
+        
+        movieCV.register(PopularMovieItemCell.self, forCellWithReuseIdentifier: "PopularMovieItemCell")
+    }
+    
+    func addComponent(){
+        self.contentView.addSubview(safeView)
+        self.safeView.addSubview(movieCV)
+        
+        safeView.snp.makeConstraints { (make) in
+            make.top.equalToSuperview()
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+            make.bottom.equalToSuperview()
+        }
+        
+        movieCV.snp.makeConstraints { (make) in
+            make.leading.equalToSuperview()
+            make.top.equalToSuperview()
+            make.trailing.equalToSuperview()
+            make.bottom.equalToSuperview()
+        }
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     func setData(movieRSP : MovieRSP?) {
         self.movieRSP = movieRSP
+        movieCV.reloadData()
     }
 
     override func awakeFromNib() {
@@ -32,3 +79,29 @@ class PopularMovieCell: UITableViewCell {
     }
 
 }
+
+extension PopularMovieCell: UICollectionViewDataSource{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if let count = movieRSP?.results.count{
+            return count
+        }else{
+            return 0
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PopularMovieItemCell", for: indexPath) as! PopularMovieItemCell
+        if  let movie = movieRSP?.results[indexPath.row]{
+            cell.setData(movie: movie)
+        }
+        return cell
+    }
+}
+
+
+extension PopularMovieCell: UICollectionViewDelegateFlowLayout{
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
+    }
+}
+
