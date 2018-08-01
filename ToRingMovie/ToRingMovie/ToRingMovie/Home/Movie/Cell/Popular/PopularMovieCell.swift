@@ -9,10 +9,16 @@
 import UIKit
 
 class PopularMovieCell: UITableViewCell {
+    var movieRSP : MovieRSP?
+    
     lazy var safeView: UIView = {
         let safeView = UIView()
         return safeView
     }()
+    
+    func setData(movieRSP : MovieRSP?) {
+        self.movieRSP = movieRSP
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()

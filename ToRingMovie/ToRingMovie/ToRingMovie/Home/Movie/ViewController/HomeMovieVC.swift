@@ -9,8 +9,14 @@
 import UIKit
 import SnapKit
 import Alamofire
+import SwiftyJSON
 
 class HomeMovieVC: UIViewController {
+    let MAX_RESPONSE  = 4
+    var countResponse = 0
+    var titles = ["Popular", "Upcoming", "Now playing", "Top rate"]
+    var movieRSPs = [MovieRSP?](repeating: nil, count: MAX_RESPONSE)
+    
     lazy var safeView: UIView = {
         let safeView = UIView()
         return safeView
@@ -20,6 +26,7 @@ class HomeMovieVC: UIViewController {
         let movieTV = UITableView()
         movieTV.backgroundColor = UIColor.clear
         movieTV.allowsSelection = false
+        movieTV.separatorStyle = UITableViewCellSeparatorStyle.none
         return movieTV
     }()
     
@@ -75,7 +82,80 @@ class HomeMovieVC: UIViewController {
     }
     
     func loadMovies() {
+        resetConfig();
         
+        let parameters : Parameters = [
+            "api_key": ApiCons.API_KEY,
+            "language": ApiCons.API_LANGUAGE,
+            "page": ApiCons.FIRST_PAGE,
+            "region": ApiCons.API_REGION
+        ]
+        Alamofire.request(ApiCons.BASE_URL + "movie/popular", method: HTTPMethod.get, parameters: parameters).responseJSON { (response) in
+            self.handleResponse(index: 0, response: response)
+        }
+        Alamofire.request(ApiCons.BASE_URL + "movie/upcoming", method: HTTPMethod.get, parameters: parameters).responseJSON { (response) in
+            self.handleResponse(index: 0, response: response)
+        }
+        Alamofire.request(ApiCons.BASE_URL + "movie/now_playing", method: HTTPMethod.get, parameters: parameters).responseJSON { (response) in
+            self.handleResponse(index: 0, response: response)
+        }
+        Alamofire.request(ApiCons.BASE_URL + "movie/top_rated", method: HTTPMethod.get, parameters: parameters).responseJSON { (response) in
+            self.handleResponse(index: 0, response: response)
+        }
+    }
+    
+    func resetConfig(){
+        countResponse = 0
+    }
+    
+    func handleResponse(index : Int,response : DataResponse<Any>) {
+        switch response.result{
+        case .success:
+            if let statusCode = response.response?.statusCode {
+                switch statusCode{
+                case ApiCons.SUCCESS_CODE:
+                    if let value = response.result.value {
+                        parseData(index: index,value: value)
+                    }else{
+                        handleFailure()
+                    }
+                    break
+                default:
+                    handleFailure()
+                    break
+                }
+            }else{
+                handleFailure()
+            }
+            break
+        case .failure:
+            handleFailure()
+            break
+        }
+    }
+    
+    func parseData(index : Int, value : Any){
+        let jsonString = JSON(value)
+        let movieRSP = MovieRSP(json: jsonString)
+        self.movieRSPs[0] = movieRSP
+        
+        countResponse += 1
+        if (countResponse == MAX_RESPONSE){
+            self.movieTV.reloadData()
+            hideLayoutLoading()
+        }
+    }
+    
+    func handleFailure() {
+        hideLayoutLoading()
+    }
+    
+    func hideLayoutLoading(){
+        layoutLoading.stopAnimating()
+    }
+    
+    func showLayoutLoading(){
+        layoutLoading.startAnimating()
     }
 }
 
