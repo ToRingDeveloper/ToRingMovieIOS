@@ -21,5 +21,6 @@ extension String {
         let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font: font],context: nil)
         return ceil(boundingBox.width)
     }
+    
 }
 

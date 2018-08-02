@@ -14,7 +14,7 @@ class Movie: NSObject {
         self.vote_count = json["vote_count"].intValue
         self.id = json["id"].intValue
         self.video = json["video"].boolValue
-        self.vote_average = json["vote_average"].floatValue
+        self.vote_average = json["vote_average"].doubleValue
         self.title = json["title"].stringValue
         self.popularity = json["popularity"].floatValue
         self.poster_path = json["poster_path"].stringValue
@@ -29,7 +29,7 @@ class Movie: NSObject {
     var vote_count: Int
     var id: Int
     var video: Bool
-    var vote_average: Float
+    var vote_average: Double
     var title: String
     var popularity: Float
     var poster_path: String

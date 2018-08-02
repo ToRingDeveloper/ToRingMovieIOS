@@ -77,7 +77,6 @@ class PopularMovieCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
 }
 
 extension PopularMovieCell: UICollectionViewDataSource{
