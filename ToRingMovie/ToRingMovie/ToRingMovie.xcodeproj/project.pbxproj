@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		312898172113654B007D36D1 /* TypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 312898162113654B007D36D1 /* TypeCell.swift */; };
+		3128981921136BBF007D36D1 /* AnotherMoviePageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3128981821136BBF007D36D1 /* AnotherMoviePageCell.swift */; };
 		3133B85B210CC5C300D096A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3133B85A210CC5C300D096A0 /* AppDelegate.swift */; };
 		3133B85D210CC5C300D096A0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3133B85C210CC5C300D096A0 /* ViewController.swift */; };
 		3133B860210CC5C300D096A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3133B85E210CC5C300D096A0 /* Main.storyboard */; };
@@ -32,6 +34,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		312898162113654B007D36D1 /* TypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeCell.swift; sourceTree = "<group>"; };
+		3128981821136BBF007D36D1 /* AnotherMoviePageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherMoviePageCell.swift; sourceTree = "<group>"; };
 		3133B857210CC5C300D096A0 /* ToRingMovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToRingMovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3133B85A210CC5C300D096A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3133B85C210CC5C300D096A0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -210,6 +214,8 @@
 			isa = PBXGroup;
 			children = (
 				3133B9E3210CCA8300D096A0 /* AnotherMovieCell.swift */,
+				312898162113654B007D36D1 /* TypeCell.swift */,
+				3128981821136BBF007D36D1 /* AnotherMoviePageCell.swift */,
 			);
 			path = AnotherMovie;
 			sourceTree = "<group>";
@@ -396,7 +402,9 @@
 				3133B9ED210CCA8300D096A0 /* PopularMovieCell.swift in Sources */,
 				31B200F1210E0B64008BED25 /* ColorCons.swift in Sources */,
 				3133B9EF210CCA8300D096A0 /* HomeTVVC.swift in Sources */,
+				3128981921136BBF007D36D1 /* AnotherMoviePageCell.swift in Sources */,
 				3133B9D9210CCA1700D096A0 /* Movie.swift in Sources */,
+				312898172113654B007D36D1 /* TypeCell.swift in Sources */,
 				3133B9EB210CCA8300D096A0 /* HomeVC.swift in Sources */,
 				31B200F3210E11CB008BED25 /* ApiCons.swift in Sources */,
 				31CB8CB52113361500716676 /* IntegerExtension.swift in Sources */,

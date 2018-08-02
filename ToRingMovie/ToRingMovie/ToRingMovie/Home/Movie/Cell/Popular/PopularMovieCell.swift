@@ -101,8 +101,6 @@ class PopularMovieCell: UITableViewCell {
     }
 }
 
-
-
 extension PopularMovieCell: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if let count = movieRSP?.results.count{
