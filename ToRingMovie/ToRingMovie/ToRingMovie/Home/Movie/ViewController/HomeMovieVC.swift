@@ -172,7 +172,7 @@ extension HomeMovieVC: UITableViewDataSource, UITableViewDelegate{
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "anther_cell") as! AnotherMovieCell
-            cell.backgroundColor = .blue
+            cell.backgroundColor = .clear
             return cell
         }
     }

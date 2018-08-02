@@ -26,6 +26,15 @@ class PopularMovieCell: UITableViewCell {
         return movieCV
     }()
     
+    lazy var pageControl : UIPageControl = {
+        let pageControl = UIPageControl()
+        pageControl.numberOfPages = 0
+        pageControl.pageIndicatorTintColor = UIColor.gray
+        pageControl.transform = CGAffineTransform(scaleX: 0.8, y: 0.8);
+        pageControl.currentPageIndicatorTintColor = UIColor.init(rgb: ColorCons.APP_COLOR)
+        return pageControl
+    }()
+    
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addComponent()
@@ -42,6 +51,7 @@ class PopularMovieCell: UITableViewCell {
     func addComponent(){
         self.contentView.addSubview(safeView)
         self.safeView.addSubview(movieCV)
+        self.safeView.addSubview(pageControl)
         
         safeView.snp.makeConstraints { (make) in
             make.top.equalToSuperview()
@@ -56,6 +66,13 @@ class PopularMovieCell: UITableViewCell {
             make.trailing.equalToSuperview()
             make.bottom.equalToSuperview()
         }
+        
+        pageControl.snp.makeConstraints { (make) in
+            make.leading.equalToSuperview().offset(10)
+            make.trailing.equalToSuperview().offset(-10)
+            make.top.equalToSuperview().offset(5)
+            make.height.equalTo(20)
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -65,6 +82,11 @@ class PopularMovieCell: UITableViewCell {
     func setData(movieRSP : MovieRSP?) {
         self.movieRSP = movieRSP
         movieCV.reloadData()
+        if let count = movieRSP?.results.count{
+            pageControl.numberOfPages = count
+        }else{
+            pageControl.numberOfPages = 0
+        }
     }
 
     override func awakeFromNib() {
@@ -78,6 +100,8 @@ class PopularMovieCell: UITableViewCell {
         // Configure the view for the selected state
     }
 }
+
+
 
 extension PopularMovieCell: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -101,6 +125,16 @@ extension PopularMovieCell: UICollectionViewDataSource{
 extension PopularMovieCell: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
+    }
+}
+
+extension PopularMovieCell: UICollectionViewDelegate{
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        //Change the current page
+        let witdh = scrollView.frame.width - (scrollView.contentInset.left * 2)
+        let index = scrollView.contentOffset.x / witdh
+        let roundedIndex = Darwin.round(index)
+        pageControl.currentPage = Int(roundedIndex)
     }
 }
 
