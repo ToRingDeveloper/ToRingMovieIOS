@@ -27,6 +27,7 @@ class HomeMovieVC: UIViewController {
         movieTV.backgroundColor = UIColor.clear
         movieTV.allowsSelection = false
         movieTV.separatorStyle = UITableViewCellSeparatorStyle.none
+        movieTV.showsVerticalScrollIndicator = false
         return movieTV
     }()
     
@@ -183,7 +184,7 @@ extension HomeMovieVC: UITableViewDataSource, UITableViewDelegate{
             case 0:
                 return fisrtRowHeight
             default:
-                return self.safeView.bounds.height - fisrtRowHeight
+                return self.safeView.bounds.height
         }
     }
 }

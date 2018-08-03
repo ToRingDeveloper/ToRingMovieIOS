@@ -30,6 +30,7 @@
 		31B200F1210E0B64008BED25 /* ColorCons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B200F0210E0B64008BED25 /* ColorCons.swift */; };
 		31B200F3210E11CB008BED25 /* ApiCons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B200F2210E11CB008BED25 /* ApiCons.swift */; };
 		31CB8CB52113361500716676 /* IntegerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CB8CB42113361500716676 /* IntegerExtension.swift */; };
+		31E9EE6D2114031500E7898D /* AnotherMoveItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E9EE6C2114031500E7898D /* AnotherMoveItemCell.swift */; };
 		5D115B0F55FE55324254FF04 /* Pods_ToRingMovie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96B2B07A75E861BD7F8E54A0 /* Pods_ToRingMovie.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +60,7 @@
 		31B200F0210E0B64008BED25 /* ColorCons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCons.swift; sourceTree = "<group>"; };
 		31B200F2210E11CB008BED25 /* ApiCons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCons.swift; sourceTree = "<group>"; };
 		31CB8CB42113361500716676 /* IntegerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegerExtension.swift; sourceTree = "<group>"; };
+		31E9EE6C2114031500E7898D /* AnotherMoveItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherMoveItemCell.swift; sourceTree = "<group>"; };
 		356AB1BAE1ED690FBE46F920 /* Pods-ToRingMovie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToRingMovie.release.xcconfig"; path = "Pods/Target Support Files/Pods-ToRingMovie/Pods-ToRingMovie.release.xcconfig"; sourceTree = "<group>"; };
 		42F726DDF834809F6CFD3E81 /* Pods-ToRingMovie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToRingMovie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ToRingMovie/Pods-ToRingMovie.debug.xcconfig"; sourceTree = "<group>"; };
 		96B2B07A75E861BD7F8E54A0 /* Pods_ToRingMovie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToRingMovie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -216,6 +218,7 @@
 				3133B9E3210CCA8300D096A0 /* AnotherMovieCell.swift */,
 				312898162113654B007D36D1 /* TypeCell.swift */,
 				3128981821136BBF007D36D1 /* AnotherMoviePageCell.swift */,
+				31E9EE6C2114031500E7898D /* AnotherMoveItemCell.swift */,
 			);
 			path = AnotherMovie;
 			sourceTree = "<group>";
@@ -414,6 +417,7 @@
 				3133B87A210CC96200D096A0 /* UICustomLoadingView.swift in Sources */,
 				3133B85D210CC5C300D096A0 /* ViewController.swift in Sources */,
 				3133B85B210CC5C300D096A0 /* AppDelegate.swift in Sources */,
+				31E9EE6D2114031500E7898D /* AnotherMoveItemCell.swift in Sources */,
 				3133B877210CC86600D096A0 /* StringExtension.swift in Sources */,
 				3133B874210CC86600D096A0 /* TextSizeContant.swift in Sources */,
 				3133B9DA210CCA1700D096A0 /* MovieRSP.swift in Sources */,

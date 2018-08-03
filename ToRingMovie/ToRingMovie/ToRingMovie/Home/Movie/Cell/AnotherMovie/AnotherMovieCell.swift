@@ -29,10 +29,12 @@ class AnotherMovieCell: UITableViewCell {
 
     lazy var movieCV : UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.minimumLineSpacing = 5
+        flowLayout.minimumLineSpacing = 0
         flowLayout.scrollDirection = .horizontal
         let movieCV = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         movieCV.backgroundColor = UIColor.init(rgb: ColorCons.BACKGROUND)
+        movieCV.isPagingEnabled = true
+        movieCV.showsHorizontalScrollIndicator = false
         return movieCV
     }()
     
@@ -87,7 +89,7 @@ class AnotherMovieCell: UITableViewCell {
         typeCV.dataSource = typeVCDataSource
         typeCV.delegate = typeVCDataSource
         
-        movieCV.register(TypeCell.self, forCellWithReuseIdentifier: "AnotherMoviePageCell")
+        movieCV.register(AnotherMoviePageCell.self, forCellWithReuseIdentifier: "AnotherMoviePageCell")
         movieCV.dataSource = self
         movieCV.delegate = self
     }
@@ -103,9 +105,15 @@ extension AnotherMovieCell : UICollectionViewDataSource{
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AnotherMoviePageCell", for: indexPath)
-        cell.backgroundColor = UIColor.blue
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AnotherMoviePageCell", for: indexPath) as! AnotherMoviePageCell
+        cell.setData(movieRSP: movieRSPs?[indexPath.row])
         return cell
+    }
+}
+
+extension AnotherMovieCell: UICollectionViewDelegateFlowLayout{
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
     }
 }
 
