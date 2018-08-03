@@ -215,10 +215,7 @@
 		3133B9E2210CCA8300D096A0 /* AnotherMovie */ = {
 			isa = PBXGroup;
 			children = (
-				3133B9E3210CCA8300D096A0 /* AnotherMovieCell.swift */,
-				312898162113654B007D36D1 /* TypeCell.swift */,
-				3128981821136BBF007D36D1 /* AnotherMoviePageCell.swift */,
-				31E9EE6C2114031500E7898D /* AnotherMoveItemCell.swift */,
+				31E9EE6E2114769800E7898D /* Option1 */,
 			);
 			path = AnotherMovie;
 			sourceTree = "<group>";
@@ -263,6 +260,17 @@
 				31B200F2210E11CB008BED25 /* ApiCons.swift */,
 			);
 			path = AppCons;
+			sourceTree = "<group>";
+		};
+		31E9EE6E2114769800E7898D /* Option1 */ = {
+			isa = PBXGroup;
+			children = (
+				3133B9E3210CCA8300D096A0 /* AnotherMovieCell.swift */,
+				312898162113654B007D36D1 /* TypeCell.swift */,
+				3128981821136BBF007D36D1 /* AnotherMoviePageCell.swift */,
+				31E9EE6C2114031500E7898D /* AnotherMoveItemCell.swift */,
+			);
+			path = Option1;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
