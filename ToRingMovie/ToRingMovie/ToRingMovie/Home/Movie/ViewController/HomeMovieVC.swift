@@ -13,6 +13,7 @@ import SwiftyJSON
 
 class HomeMovieVC: UIViewController {
     let MAX_RESPONSE  = 4
+    let NUMBER_OF_CELL = 4
     var countResponse = 0
     var titles = ["Popular", "Upcoming", "Now playing", "Top rate"]
     var movieRSPs = [MovieRSP?](repeating: nil, count: 4)
@@ -78,8 +79,9 @@ class HomeMovieVC: UIViewController {
     func registerCell() {
         self.movieTV.dataSource = self
         self.movieTV.delegate = self
-        movieTV.register(PopularMovieCell.self, forCellReuseIdentifier: "popular_cell")
-        movieTV.register(AnotherMovieCell.self, forCellReuseIdentifier: "anther_cell")
+        movieTV.register(PopularMovieCell.self, forCellReuseIdentifier: "PopularMovieCell")
+        movieTV.register(AnotherMovieCell.self, forCellReuseIdentifier: "AnotherMovieCell")
+        movieTV.register(SecondMovieCell.self, forCellReuseIdentifier: "SecondMovieCell")
     }
     
     func loadMovies() {
@@ -162,19 +164,26 @@ class HomeMovieVC: UIViewController {
 
 extension HomeMovieVC: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return NUMBER_OF_CELL
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "popular_cell") as! PopularMovieCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "PopularMovieCell") as! PopularMovieCell
             cell.setData(movieRSP: movieRSPs[indexPath.row])
             return cell
         default:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "anther_cell") as! AnotherMovieCell
-            cell.setData(titles: Array(titles[1..<titles.count]), movieRSPs: Array(movieRSPs[1..<movieRSPs.count]))
-            return cell
+            if NUMBER_OF_CELL == 2{
+                let cell = tableView.dequeueReusableCell(withIdentifier: "AnotherMovieCell") as! AnotherMovieCell
+                cell.setData(titles: Array(titles[1..<titles.count]), movieRSPs: Array(movieRSPs[1..<movieRSPs.count]))
+                return cell
+            }else{
+                let cell = tableView.dequeueReusableCell(withIdentifier: "SecondMovieCell") as! SecondMovieCell
+                cell.backgroundColor = UIColor.init(rgb: ColorCons.BACKGROUND)
+                cell.setData(title: titles[indexPath.row], movieRSP: movieRSPs[indexPath.row])
+                return cell
+            }
         }
     }
     
@@ -184,7 +193,11 @@ extension HomeMovieVC: UITableViewDataSource, UITableViewDelegate{
             case 0:
                 return fisrtRowHeight
             default:
+            if NUMBER_OF_CELL == 2{
                 return self.safeView.bounds.height
+            }else{
+                return fisrtRowHeight * 1.2
+            }
         }
     }
 }

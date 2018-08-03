@@ -26,7 +26,7 @@ class HomeVC: UITabBarController {
         ]
         UITabBarItem.appearance().setTitleTextAttributes(attributesNormal , for: UIControlState.normal)
         UITabBarItem.appearance().setTitleTextAttributes(attributesSelected, for: UIControlState.selected)
-        self.tabBar.barTintColor = UIColor.init(rgb: ColorCons.BACKGROUND_DARK)
+        self.tabBar.barTintColor = UIColor.init(rgb: ColorCons.BACKGROUND_LIGHT)
         self.tabBar.tintColor = UIColor.init(rgb: ColorCons.APP_COLOR)
         self.tabBar.unselectedItemTintColor = UIColor.init(rgb: ColorCons.BACKGROUND)
         self.tabBar.isTranslucent = false
