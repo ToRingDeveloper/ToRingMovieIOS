@@ -8,9 +8,14 @@
 
 import UIKit
 
+protocol TapItem {
+    func tapItem(movie: Movie?)
+}
+
 class PopularMovieCell: UITableViewCell {
     var title: String?
     var movieRSP : MovieRSP?
+    var tapItemProtocol: TapItem?
     
     lazy var safeView: UIView = {
         let safeView = UIView()
@@ -90,6 +95,10 @@ class PopularMovieCell: UITableViewCell {
             pageControl.numberOfPages = 0
         }
     }
+    
+    func addTapItem(tapItem : TapItem) {
+        self.tapItemProtocol = tapItem
+    }
 }
 
 extension PopularMovieCell: UICollectionViewDataSource{
@@ -124,6 +133,10 @@ extension PopularMovieCell: UICollectionViewDelegate{
         let index = scrollView.contentOffset.x / witdh
         let roundedIndex = Darwin.round(index)
         pageControl.currentPage = Int(roundedIndex)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        tapItemProtocol?.tapItem(movie: movieRSP?.results[indexPath.row])
     }
 }
 

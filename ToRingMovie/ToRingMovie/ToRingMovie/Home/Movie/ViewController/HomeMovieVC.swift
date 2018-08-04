@@ -172,6 +172,7 @@ extension HomeMovieVC: UITableViewDataSource, UITableViewDelegate{
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "PopularMovieCell") as! PopularMovieCell
             cell.setData(title: titles[indexPath.row], movieRSP: movieRSPs[indexPath.row])
+            cell.addTapItem(tapItem: self)
             return cell
         default:
             if NUMBER_OF_CELL == 2{
@@ -199,5 +200,11 @@ extension HomeMovieVC: UITableViewDataSource, UITableViewDelegate{
                 return fisrtRowHeight * 1.2
             }
         }
+    }
+}
+
+extension HomeMovieVC: TapItem{
+    func tapItem(movie: Movie?) {
+        self.navigationController?.pushViewController(DetailMovieViewController(), animated: true)
     }
 }
