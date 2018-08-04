@@ -205,6 +205,8 @@ extension HomeMovieVC: UITableViewDataSource, UITableViewDelegate{
 
 extension HomeMovieVC: TapItem{
     func tapItem(movie: Movie?) {
-        self.navigationController?.pushViewController(DetailMovieViewController(), animated: true)
+        let detailMovieVC = DetailMovieViewController()
+        detailMovieVC.setMovie(movie: movie)
+        self.navigationController?.pushViewController(detailMovieVC, animated: true)
     }
 }

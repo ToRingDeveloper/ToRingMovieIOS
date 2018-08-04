@@ -12,4 +12,8 @@ class GetImageURLUtil: NSObject {
     static func getBackdropImageURL(_ sufImageURL: String) -> String {
         return "https://image.tmdb.org/t/p/w780/\(sufImageURL)"
     }
+    
+    static func getPosterImageURL(_ sufImageURL: String) -> String {
+        return "https://image.tmdb.org/t/p/w342/\(sufImageURL)"
+    }
 }

@@ -47,7 +47,7 @@ class AnotherMoveItemCell: UICollectionViewCell {
     
     func setData(movie : Movie?) {
         self.movie = movie
-        let url = URL(string: GetImageURLUtil.getBackdropImageURL((movie?.backdrop_path)!))
+        let url = URL(string: GetImageURLUtil.getPosterImageURL((movie?.backdrop_path)!))
         self.movieImage.kf.setImage(with: url)
     }
     
