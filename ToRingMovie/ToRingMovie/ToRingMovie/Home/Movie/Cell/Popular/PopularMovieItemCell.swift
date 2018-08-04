@@ -11,6 +11,7 @@ import Kingfisher
 import Cosmos
 
 class PopularMovieItemCell: UICollectionViewCell {
+    var type : String?
     var movie: Movie?
     
     lazy var safeView : UIView = {
@@ -41,7 +42,6 @@ class PopularMovieItemCell: UICollectionViewCell {
         let voteCountLabel = UILabel()
         voteCountLabel.textColor = UIColor.init(rgb: ColorCons.TEXT_SECONDARY)
         voteCountLabel.font  = UIFont.systemFont(ofSize: TextSizeContant.SMALL)
-        voteCountLabel.textAlignment = .right
         voteCountLabel.numberOfLines = 1
         return voteCountLabel
     }()
@@ -51,7 +51,6 @@ class PopularMovieItemCell: UICollectionViewCell {
         titleLabel.textColor = UIColor.init(rgb: ColorCons.TEXT_PRIMARY)
         titleLabel.font  = UIFont.boldSystemFont(ofSize: TextSizeContant.NORMAL)
         titleLabel.numberOfLines = 1
-        titleLabel.textAlignment = .right
         return titleLabel
     }()
     
@@ -64,6 +63,18 @@ class PopularMovieItemCell: UICollectionViewCell {
         gradientLayer.colors = [color1, color2]
         gradientLayer.locations = [0.0, 1.0]
         return gradientLayer
+    }()
+    
+    lazy var typeLabel : UILabel = {
+        let typeLabel = UILabel()
+        typeLabel.textColor = UIColor.init(rgb: ColorCons.TEXT_PRIMARY)
+        typeLabel.font  = UIFont.systemFont(ofSize: TextSizeContant.MINI)
+        typeLabel.numberOfLines = 1
+        typeLabel.layer.borderWidth = 2
+        typeLabel.layer.borderColor = UIColor.init(rgb: ColorCons.TEXT_SECONDARY).cgColor
+        typeLabel.layer.cornerRadius = 5
+        typeLabel.textAlignment = .center
+        return typeLabel
     }()
     
     lazy var viewContent : UIView = {
@@ -84,6 +95,7 @@ class PopularMovieItemCell: UICollectionViewCell {
     func addComponent() {
         self.contentView.addSubview(safeView)
         self.safeView.addSubview(movieImage)
+        self.safeView.addSubview(typeLabel)
         self.safeView.addSubview(viewContent)
         self.safeView.addSubview(titleLabel)
         self.safeView.addSubview(ratingBar)
@@ -104,23 +116,23 @@ class PopularMovieItemCell: UICollectionViewCell {
         }
 
         self.ratingBar.snp.makeConstraints { (make) in
-            make.trailing.equalToSuperview().offset(-10)
+            make.leading.equalToSuperview().offset(10)
             make.bottom.equalToSuperview().offset(-10)
             make.height.equalTo(15)
             make.width.equalTo(95)
         }
         
         self.voteCountLabel.snp.makeConstraints { (make) in
-            make.left.equalToSuperview().offset(10)
-            make.right.equalTo(ratingBar.snp.left).offset(-10)
-            make.bottom.equalTo(ratingBar.snp.bottom)
+            make.left.equalTo(ratingBar.snp.right).offset(10)
             make.top.equalTo(ratingBar.snp.top)
+            make.right.equalToSuperview().offset(-10)
+            make.bottom.equalTo(ratingBar.snp.bottom)
         }
         
         self.titleLabel.snp.makeConstraints { (make) in
             make.leading.equalToSuperview().offset(10)
             make.trailing.equalToSuperview().offset(-10)
-            make.bottom.equalTo(ratingBar.snp.top)
+            make.bottom.equalTo(ratingBar.snp.top).offset(-5)
             make.height.equalTo(titleLabel.font.lineHeight)
         }
         
@@ -130,14 +142,22 @@ class PopularMovieItemCell: UICollectionViewCell {
             make.bottom.equalToSuperview()
             make.top.equalTo(titleLabel.snp.top).offset(-10)
         }
+        
+        self.typeLabel.snp.makeConstraints { (make) in
+            make.trailing.equalToSuperview().offset(-10)
+            make.bottom.equalTo(ratingBar.snp.bottom).offset(-2)
+            make.top.equalTo(titleLabel.snp.top).offset(2)
+            make.width.equalTo(60)
+        }
     }
     
-    func setData(movie : Movie) {
+    func setData(type:String?, movie : Movie) {
         self.movie = movie
         let url = URL(string:  GetImageURLUtil.getBackdropImageURL(movie.backdrop_path))
         self.movieImage.kf.setImage(with: url)
         self.titleLabel.text = movie.title
         self.ratingBar.rating = movie.vote_average/2
         self.voteCountLabel.text = "\(movie.vote_count.formatWithSeparator()) votes"
+        self.typeLabel.text = type
     }
 }

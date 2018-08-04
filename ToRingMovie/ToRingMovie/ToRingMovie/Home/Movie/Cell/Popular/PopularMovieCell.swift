@@ -9,6 +9,7 @@
 import UIKit
 
 class PopularMovieCell: UITableViewCell {
+    var title: String?
     var movieRSP : MovieRSP?
     
     lazy var safeView: UIView = {
@@ -79,7 +80,8 @@ class PopularMovieCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setData(movieRSP : MovieRSP?) {
+    func setData(title: String?, movieRSP : MovieRSP?) {
+        self.title = title
         self.movieRSP = movieRSP
         movieCV.reloadData()
         if let count = movieRSP?.results.count{
@@ -87,17 +89,6 @@ class PopularMovieCell: UITableViewCell {
         }else{
             pageControl.numberOfPages = 0
         }
-    }
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 }
 
@@ -113,7 +104,7 @@ extension PopularMovieCell: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PopularMovieItemCell", for: indexPath) as! PopularMovieItemCell
         if  let movie = movieRSP?.results[indexPath.row]{
-            cell.setData(movie: movie)
+            cell.setData(type: title,movie: movie)
         }
         return cell
     }

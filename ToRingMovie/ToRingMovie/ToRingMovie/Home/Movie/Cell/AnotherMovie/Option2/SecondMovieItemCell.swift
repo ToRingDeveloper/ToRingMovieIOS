@@ -106,14 +106,14 @@ class SecondMovieItemCell: UICollectionViewCell {
         self.titleLabel.text = movie?.title
         switch title {
         case "Upcoming":
-            self.iconImage.backgroundColor = UIColor.green
+            self.iconImage.image = #imageLiteral(resourceName: "ic_time")
             self.statusLabel.text = movie!.release_date
         case "Now playing":
-            self.iconImage.backgroundColor = UIColor.blue
+            self.iconImage.image = #imageLiteral(resourceName: "ic_start")
             self.statusLabel.text = movie!.vote_count.formatWithSeparator() + " votes"
         case "Top rate":
-            self.iconImage.backgroundColor = UIColor.init(rgb: ColorCons.APP_COLOR)
-            self.statusLabel.text = movie!.vote_average.formatWithSeparator()
+            self.iconImage.image = #imageLiteral(resourceName: "ic_start")
+            self.statusLabel.text = movie!.vote_average.formatWithSeparator() + " rating"
         default:
             break
         }

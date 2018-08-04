@@ -171,7 +171,7 @@ extension HomeMovieVC: UITableViewDataSource, UITableViewDelegate{
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "PopularMovieCell") as! PopularMovieCell
-            cell.setData(movieRSP: movieRSPs[indexPath.row])
+            cell.setData(title: titles[indexPath.row], movieRSP: movieRSPs[indexPath.row])
             return cell
         default:
             if NUMBER_OF_CELL == 2{

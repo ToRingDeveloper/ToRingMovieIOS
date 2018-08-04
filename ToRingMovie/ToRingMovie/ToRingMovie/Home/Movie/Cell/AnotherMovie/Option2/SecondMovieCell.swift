@@ -14,9 +14,24 @@ class SecondMovieCell: UITableViewCell {
     
     lazy var titleLabel : UILabel = {
         let titleLabel = UILabel()
-        titleLabel.font = UIFont.boldSystemFont(ofSize: TextSizeContant.SMALL)
+        titleLabel.font = UIFont.boldSystemFont(ofSize: TextSizeContant.MINI)
         titleLabel.textColor = UIColor.init(rgb: ColorCons.TEXT_PRIMARY)
         return titleLabel
+    }()
+    
+    lazy var seeAllLabel : UILabel = {
+        let seeAllLabel = UILabel()
+        seeAllLabel.font = UIFont.boldSystemFont(ofSize: TextSizeContant.MINI)
+        seeAllLabel.textColor = UIColor.init(rgb: ColorCons.APP_COLOR)
+        seeAllLabel.text = "See All"
+        return seeAllLabel
+    }()
+    
+    lazy var iconNextImage : UIImageView = {
+        let iconNextImage = UIImageView()
+        iconNextImage.contentMode = .scaleAspectFit
+        iconNextImage.image = #imageLiteral(resourceName: "ic_next")
+        return iconNextImage
     }()
     
     lazy var movieCV : UICollectionView = {
@@ -48,13 +63,31 @@ class SecondMovieCell: UITableViewCell {
     
     func addComponent() {
         self.contentView.addSubview(titleLabel)
+        self.contentView.addSubview(iconNextImage)
+        self.contentView.addSubview(seeAllLabel)
         self.contentView.addSubview(movieCV)
         
         self.titleLabel.snp.makeConstraints { (make) in
             make.leading.equalToSuperview().offset(5)
-            make.top.equalToSuperview().offset(5)
+            make.top.equalToSuperview().offset(10)
             make.trailing.equalToSuperview()
             make.height.equalTo(titleLabel.font.lineHeight)
+        }
+        
+        self.iconNextImage.snp.makeConstraints { (make) in
+            make.top.equalTo(titleLabel.snp.top)
+            make.trailing.equalToSuperview().offset(-5)
+            make.bottom.equalTo(titleLabel.snp.bottom)
+            make.width.equalTo(iconNextImage.snp.height)
+        }
+        
+        self.seeAllLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(titleLabel.snp.top).offset(-5)
+            make.trailing.equalToSuperview()
+            make.bottom.equalTo(titleLabel.snp.bottom).offset(5)
+            let height = seeAllLabel.font.lineHeight
+            let width = "See All".width(withConstrainedHeight: height, font: seeAllLabel.font) + height + 7
+            make.width.equalTo(width)
         }
         
         self.movieCV.snp.makeConstraints { (make) in
