@@ -107,6 +107,27 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		31064F562117331600133BB7 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				31064F572117337F00133BB7 /* Main */,
+				31B200EF210E0B38008BED25 /* AppCons */,
+				3133B9DB210CCA5200D096A0 /* Util */,
+				3133B878210CC96200D096A0 /* CustomView */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		31064F572117337F00133BB7 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				3133B9D6210CCA1700D096A0 /* Model */,
+				31A4D99E211604E50067060D /* DetailMovie */,
+				3133B9DE210CCA8300D096A0 /* Home */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		3133B84E210CC5C300D096A0 = {
 			isa = PBXGroup;
 			children = (
@@ -128,12 +149,7 @@
 		3133B859210CC5C300D096A0 /* ToRingMovie */ = {
 			isa = PBXGroup;
 			children = (
-				31A4D99E211604E50067060D /* DetailMovie */,
-				31B200EF210E0B38008BED25 /* AppCons */,
-				3133B9DE210CCA8300D096A0 /* Home */,
-				3133B9DB210CCA5200D096A0 /* Util */,
-				3133B9D6210CCA1700D096A0 /* Model */,
-				3133B878210CC96200D096A0 /* CustomView */,
+				31064F562117331600133BB7 /* App */,
 				3133B86C210CC86600D096A0 /* Base */,
 				3133B85A210CC5C300D096A0 /* AppDelegate.swift */,
 				3133B85C210CC5C300D096A0 /* ViewController.swift */,
