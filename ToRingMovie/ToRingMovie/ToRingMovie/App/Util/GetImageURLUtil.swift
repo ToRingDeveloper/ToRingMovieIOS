@@ -14,6 +14,6 @@ class GetImageURLUtil: NSObject {
     }
     
     static func getPosterImageURL(_ sufImageURL: String) -> String {
-        return "https://image.tmdb.org/t/p/w342/\(sufImageURL)"
+        return "https://image.tmdb.org/t/p/w185/\(sufImageURL)"
     }
 }

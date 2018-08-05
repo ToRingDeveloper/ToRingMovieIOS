@@ -114,7 +114,7 @@ extension DetailMovieViewController : UITableViewDelegate{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
         case 0:
-            return tableView.frame.width * (0.8)
+            return tableView.frame.width * (0.75)
         default:
             return tableView.frame.width
         }
