@@ -25,7 +25,7 @@ class DetailMovieViewController: UIViewController {
     
     lazy var backImage : UIImageView = {
         let backImage = UIImageView()
-        backImage.contentMode = .scaleAspectFit
+        backImage.contentMode = .center
         backImage.image = #imageLiteral(resourceName: "ic_back")
         return backImage
     }()
@@ -68,8 +68,8 @@ class DetailMovieViewController: UIViewController {
         
         self.backImage.snp.makeConstraints { (make) in
             make.leading.equalToSuperview()
-            make.top.equalToSuperview().offset(10)
-            make.bottom.equalToSuperview().offset(-10)
+            make.top.equalToSuperview()
+            make.bottom.equalToSuperview()
             make.width.equalTo(backImage.snp.height)
         }
     }
